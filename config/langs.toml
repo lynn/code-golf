@@ -516,6 +516,32 @@ end do
 end
 '''
 
+[Gleam]
+args       = [ '/usr/bin/gleamwrapper', '-', '--' ]
+# Uncomment next line when wrapping up.
+#env        = [ 'NODE_ICU_DATA=/usr/share/icu' ]
+experiment = 1129
+size       = '91.0 MiB'
+version    = '1.4.1'
+website    = 'https://gleam.run'
+# Whats this shit io.debug, everything i tried just wont reach stdout wtf
+example    = '''
+import argv
+import gleam/io
+import gleam/list
+
+pub fn main() {
+    // Printing
+    io.println("Hello, World!")
+
+    // Looping
+    list.each(list.range(0, 9), io.debug)
+
+    // Accessing arguments
+    list.each(argv.load().arguments, io.println)
+}
+'''
+
 [Go]
 size    = '353 MiB'
 version = '1.22.4'
